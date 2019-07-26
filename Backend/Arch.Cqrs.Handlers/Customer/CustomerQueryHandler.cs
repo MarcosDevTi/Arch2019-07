@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Arch.Cqrs.Client.Customer;
 using Arch.CrossCutting.CqrsContracts;
 using Arch.Domain.Contracts;
@@ -18,7 +19,7 @@ namespace Arch.Cqrs.Handlers.Customer
 
         public IReadOnlyList<CustomerItem> Handle(GetCustomers query)
         {
-            return _customerRepository.Get<CustomerItem>().ToList();
+            return _customerRepository.GetList<CustomerItem>().ToList();
         }
     }
 }

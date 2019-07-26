@@ -18,23 +18,6 @@ namespace Arch.Cqrs.Handlers.Customer
 
         public void Handle(CreateCustomer command)
         {
-            // var customer = new Domain.Customer
-            // {
-            //     Name = new Name {
-            //         FirstName = command.FirstName,
-            //         LastName = command.LastName
-            //     },
-            //     Email = new Email {
-            //         EmailAddress = command.Email
-            //     },
-            //     Address = new Address {
-            //         Number = command.Number,
-            //         Street = command.Street,
-            //         ZipCode = command.ZipCode,
-            //         City = command.City
-            //     },
-            //     BirthDate = command.BirthDate
-            // };
             var customer = Mapper.Map<Domain.Customer>(command);
             
             _customerRepository.Add(customer);
