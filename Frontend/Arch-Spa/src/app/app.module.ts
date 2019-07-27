@@ -16,6 +16,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ErrorInterceptorProvider } from './shared/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { HomeComponent } from './pages/home/home.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ErrorInterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

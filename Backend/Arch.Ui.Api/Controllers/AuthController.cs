@@ -30,6 +30,7 @@ namespace Arch.Ui.Api.Controllers
         [HttpPost("login")]
         public IActionResult Login(Login userLogin)
         {
+            throw new Exception("Eita, deu merda");
             var user = _processor.Send<Login, User>(userLogin);
             
             if (user == null)
@@ -63,7 +64,8 @@ namespace Arch.Ui.Api.Controllers
             var username = user.Username.ToLower();
             if(_processor.Get(new UserExists(username)))
             {
-                return BadRequest("Username already exists");
+                var error = new { errors = new [] {"Username already exists"}};
+                return BadRequest(error);
             }
             
             _processor.Send(user);
