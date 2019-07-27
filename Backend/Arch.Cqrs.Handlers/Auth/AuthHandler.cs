@@ -1,4 +1,3 @@
-using System;
 using System.Security.Cryptography;
 using System.Text;
 using Arch.Cqrs.Client.Auth;
@@ -20,7 +19,7 @@ namespace Arch.Cqrs.Handlers.Auth
         }
         public User Handle(Login command)
         {
-            var user = _authRepository.Get(_ => _.Username == command.Username);
+            var user = _authRepository.Get(_ => _.Username== command.Username);
             if (user == null)
                 return null;
             if (!VerifyPasswordHash(command.Password, user.PasswordHash, user.PasswordSalt))
@@ -50,6 +49,7 @@ namespace Arch.Cqrs.Handlers.Auth
 
             var user = new User
             {
+                Username = command.Username,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
             };

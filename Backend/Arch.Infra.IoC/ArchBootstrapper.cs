@@ -20,7 +20,7 @@ namespace Arch.Infra.IoC
             services.AddDbContext<ArchContext>(_ => _.UseSqlite(config.GetConnectionString("ArchConnection")));
             
             services.AddTransient<ICustomerRepository, CustomerRepository>();
-            // services.AddTransient<IAuthRepository, Repository<User>>();
+             services.AddTransient<IAuthRepository, AuthRepository>();
             //services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IProcessor, Processor>();
             services.RegisterCqrs<CustomerCommandHandler>();

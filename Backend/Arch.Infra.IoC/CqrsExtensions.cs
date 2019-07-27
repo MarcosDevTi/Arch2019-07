@@ -12,7 +12,7 @@ namespace Arch.Infra.IoC
         {
             var target = typeof(TPath).Assembly;
             bool FilterTrue(AssemblyName a) => true;
-            var handlers = new [] {typeof(ICommandHandler<>), typeof(IQueryHandler<,>)};
+            var handlers = new [] {typeof(ICommandHandler<>),typeof(ICommandHandler<,>), typeof(IQueryHandler<,>)};
 
             var assemblies = target.GetReferencedAssemblies()
                 .Where(filter ?? FilterTrue)
