@@ -1,0 +1,29 @@
+.nav {
+ // margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.menu {
+  margin-top: 15px;
+}
+
+.login {
+  display: flex;
+}
+
+.login mat-form-field {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.login button {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.mat-form-field {
+  width: 300px;
+}

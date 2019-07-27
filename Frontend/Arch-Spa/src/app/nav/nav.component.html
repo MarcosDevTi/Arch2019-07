@@ -1,0 +1,44 @@
+<div class="nav">
+  <div class="menu">
+    <button mat-button [routerLink]="['/']">Home</button>
+
+    <button mat-button [matMenuTriggerFor]="aboveMenu">Customers</button>
+    <mat-menu #aboveMenu="matMenu" yPosition="above">
+      <button mat-menu-item [routerLink]="['customers']" routerLinkActive="router-link-active" >List</button>
+      <button mat-menu-item>New</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="belowMenu">Below</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+  </div>
+
+  <div class="login">
+      <div *ngIf="loggedIn()">
+          <button mat-button [matMenuTriggerFor]="belowMenu">Welcome User</button>
+          <mat-menu #belowMenu="matMenu" yPosition="below">
+            <button mat-menu-item>
+                <mat-icon>account_box</mat-icon>Edit Profile</button>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon> Logout</button>
+          </mat-menu>
+      </div>
+
+    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="example-form" (ngSubmit)="login()">
+      <mat-form-field>
+        <input matInput placeholder="Username" required name="username" [(ngModel)]="model.username">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Password" required name="password" [(ngModel)]="model.password">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
+
+</div>
+
+<mat-divider></mat-divider>
