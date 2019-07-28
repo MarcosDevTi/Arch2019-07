@@ -1,3 +1,4 @@
+import { AlertifyService } from './../../shared/alertify.service';
 import { AuthService } from './../../shared/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertify: AlertifyService
     ) { }
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.authService.register(this.registerForm.value).subscribe(
-      () => console.log('registration successful'),
-      error => console.log(error));
+      () => this.alertify.success('registration successful'),
+      error => this.alertify.error(error));
   }
 }

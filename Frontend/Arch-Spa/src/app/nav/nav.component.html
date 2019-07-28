@@ -17,7 +17,7 @@
 
   <div class="login">
       <div *ngIf="loggedIn()">
-          <button mat-button [matMenuTriggerFor]="belowMenu">Welcome User</button>
+          <button mat-button [matMenuTriggerFor]="belowMenu">Welcome {{authService.decodedToken?.unique_name | titlecase}}</button>
           <mat-menu #belowMenu="matMenu" yPosition="below">
             <button mat-menu-item>
                 <mat-icon>account_box</mat-icon>Edit Profile</button>

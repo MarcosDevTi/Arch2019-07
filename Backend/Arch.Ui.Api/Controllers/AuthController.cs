@@ -30,7 +30,6 @@ namespace Arch.Ui.Api.Controllers
         [HttpPost("login")]
         public IActionResult Login(Login userLogin)
         {
-            throw new Exception("Eita, deu merda");
             var user = _processor.Send<Login, User>(userLogin);
             
             if (user == null)
