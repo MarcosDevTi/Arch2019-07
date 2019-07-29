@@ -1,6 +1,6 @@
-<h2>Sign Up</h2>
+<h2>New Customer</h2>
 
-<form class="container" [formGroup]="registerForm" (submit)="register()">
+<form class="container" [formGroup]="newCustomerForm" (submit)="register()">
     <mat-form-field>
       <input matInput placeholder="Username" formControlName="username">
     </mat-form-field>
@@ -18,6 +18,3 @@
 
         <button mat-raised-button>Register</button>
   </form>
-
-  {{registerForm.value | json}}
-  {{registerForm.valid }}

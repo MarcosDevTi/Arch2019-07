@@ -24,8 +24,17 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       username: [null, [Validators.required]],
       password: [null, [Validators.required]],
+      confirmPassword: [null, [Validators.required]],
       email: [null, [Validators.required]],
-    });
+    }, {validator: this.passwordMatchValidator} );
+  }
+
+  get username() { return this.registerForm.get('username'); }
+  get password() { return this.registerForm.get('password'); }
+  get confirmPassword() { return this.registerForm.get('confirmPassword'); }
+
+  passwordMatchValidator(g: FormGroup) {
+    return g.get('password').value === g.get('confirmPassword').value ? null : {mismatch: true};
   }
 
   register() {

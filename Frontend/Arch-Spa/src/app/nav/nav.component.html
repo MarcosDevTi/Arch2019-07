@@ -5,7 +5,7 @@
     <button mat-button [matMenuTriggerFor]="aboveMenu">Customers</button>
     <mat-menu #aboveMenu="matMenu" yPosition="above">
       <button mat-menu-item [routerLink]="['customers']" routerLinkActive="router-link-active" >List</button>
-      <button mat-menu-item>New</button>
+      <button mat-menu-item [routerLink]="['customers/new']">New</button>
     </mat-menu>
 
     <button mat-button [matMenuTriggerFor]="belowMenu">Below</button>

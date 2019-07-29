@@ -7,7 +7,7 @@ namespace Arch.Ui.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+
     public class CustomerController: ControllerBase
     {
         private readonly IProcessor _processor;
